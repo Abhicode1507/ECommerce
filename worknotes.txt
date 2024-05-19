@@ -1,0 +1,28 @@
+npx create-react-app reactfull
+npm install jquery --save
+npm install popper.js --save
+npm install bootstrap --save
+
+
+react life cycle
+-Mounting phase
+When an instance of a component is being created and inserted into the DOM
+contructor()->render()-componentDidMount()
+
+-Updating phase
+When a component is being updated by a change in either props or state
+render()->componentDidUpdate(prevProps, prevState)
+
+-Unmounting phase
+When a component is removed from the DOM
+componentWillUnmount()
+
+-Error handling phase
+When a component encounters an error during the rendering, in a lifecycle method or in the contructor of any child component
+componentDidCatch(error, info)   //new feature added to React16
+
+for watching from json file using json server
+json-server reactDB.json --watch --port=5000
+
+for creating routes
+npm install react-router-dom --save
