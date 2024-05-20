@@ -1,4 +1,5 @@
 import { Component } from "react";
+import history from "./history";
 
 export default class Login extends Component {
   constructor(props) {
@@ -64,6 +65,9 @@ export default class Login extends Component {
       });
       //call updateIsLoggedInStatus of parent component to update the status as true
       this.props.updateIsLoggedInStatus(true);
+
+      //navigate to dashboard
+      history.replace("/dashboard");
 
     } else {
       //error

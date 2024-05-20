@@ -4,9 +4,10 @@ import ShoppingCart from "./ShoppingCart";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import CustomerList from "./CustomerList";
-import { Routes, Route, Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import NoMatchPage from "./NoMatchPage";
-// import history from "./history";
+import history from "./history";
 
 export default class App extends Component {
   constructor(props) {
@@ -16,14 +17,14 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <NavBar isLoggedIn={this.state.isLoggedIn} />
         <div className="container-fluid">
           <Routes>
             <Route
               path="/"
               element={
-                <Login/>
+                <Login updateIsLoggedInStatus={this.updateIsLoggedInStatus} />
               }
             />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -32,11 +33,11 @@ export default class App extends Component {
             <Route path="*" element={<NoMatchPage />} />
           </Routes>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
-                                                              
-//   updateIsLoggedInStatus = (status) => {
-//     this.setState({ isLoggedIn: status });
-//   };
+
+  updateIsLoggedInStatus = (status) => {
+    this.setState({ isLoggedIn: status });
+  };
 }
